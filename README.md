@@ -26,3 +26,32 @@ Recommended environment variables:
   ALLOW_HTTPS=yes
   DISABLE_IPV6=no
   REBOOT_IF_NEEDED=no
+
+Run: 
+
+```
+chmod +x harden.sh
+ADMIN_USER=secureadmin \
+SSH_PORT=2222 \
+SSH_PUBKEY_FILE=/root/.ssh/id_ed25519.pub \
+ALLOW_HTTP=yes \
+ALLOW_HTTPS=yes \
+DISABLE_IPV6=no \
+REBOOT_IF_NEEDED=no \
+./harden.sh
+```
+
+or 
+
+```
+ADMIN_USER=secureadmin \
+SSH_PORT=2222 \
+SSH_PUBKEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIYourPublicKeyHere user@host" \
+./harden.sh
+```
+
+Verify:
+
+```
+ssh -p 2222 secureadmin@your_server_ip
+```
